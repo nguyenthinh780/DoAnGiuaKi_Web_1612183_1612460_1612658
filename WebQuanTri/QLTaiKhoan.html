@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="QLTaiKhoan_js.js"></script>
+  <! <link href="default.css" rel="stylesheet" type="text/css">
+  <title>1612183_1612460_1612658_ĐAGK</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h2>QUẢN LÝ TÀI KHOẢN</h2>
+  <div class="container">
+
+    <div class="row">
+    <div class="col-2">Tài khoản: </div>
+    <div class="col-4"><input type="text" name="tentk" id="tentk"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-2">Mật khẩu: </div>
+    <div class="col-4"><input type="text" name="matk" id="matk"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-2">Họ tên: </div>
+    <div class="col-4"><input type="text" name="matk" id="hoten"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-2">Giới tính: </div>
+    <div class="col-4"><input type="text" name="matk" id="gtinh"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-2">Ngày sinh: </div>
+    <div class="col-4"><input type="text" name="matk" id="nsinh"></div>
+    </div>
+
+    <div class="row">
+    <div class="col-2">Email: </div>
+    <div class="col-4"><input type="text" name="matk" id="email"></div>
+    </div>
+  <input type="button" value="Chỉnh sửa" onclick="clickChange()">
+  <table id="tableId" class="table table-hover">
+    <thead>
+      <tr>
+        <th>Tên tài khoản</th>
+        <th>Mật khẩu</th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick="clickRow(this)">
+        <td>nguyenthinh</td>
+        <td>123456</td>
+        <td>Nguyễn Kim Thịnh</td>
+        <td>Nam</td>
+        <td>15/5/1998</td>
+        <td>thinh@example.com</td>
+      </tr>
+      <tr onclick="clickRow(this)">
+        <td>dieuhien</td>
+        <td>123456</td>
+        <td>Nguyễn Thị Diệu Hiền</td>
+        <td>Nữ</td>
+        <td>1/1/1998</td>
+        <td>hien@example.com</td>
+      </tr>
+      <tr onclick="clickRow(this)">
+        <td>vannhat</td>
+        <td>123456</td>
+        <td>Châu Văn Nhật</td>
+        <td>Nam</td>
+        <td>2/2/1998</td>
+        <td>nhat@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
