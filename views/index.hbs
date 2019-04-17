@@ -44,6 +44,18 @@
                     <a href="" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                 </div>
             </div>
+            </ul>
+            <div class="search">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Nhâp tên sản phẩm cần tìm ..." title="Type in a name">
+                <ul id="myUL">
+                 <li><a href="#">Apple</a></li>
+                    <li><a href="#">SamSung</a></li>
+
+                <li><a href="#">Iphone XS Max</a></li>
+                <li><a href="#">Iphone 8</a></li>
+
+                <li><a href="#">SamSung Note 10</a></li>
+            </ul>
         </div>
     </div>
 
@@ -327,17 +339,30 @@
                 <div class="row">
                     <div class="col-md-1 logo"><a href="/"><img src="images/logo2.jpg" alt=" Logo" /></a></div>
                     <ul class="col-md-9 menu">
-                        <li><a href="">Trang chủ</a></li>
-                        <li><a href="">Giới thiệu</a></li>
-                        <li>
-                            <a  href="">Sản phẩm</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">IphoneSXMAX</a> </li>
-                                <li><a href="#">Iphone 8</a> </li>
-                                <li><a href="#">SamsungNote9</a> </li>
-                            </ul>
-                        </li>
-                        <li><a  href="">Liên hệ</a></li>
+                        <ul class="nav">
+                            <li><a href="#">Trang Chủ</a></li>
+                            <li>
+                                <a href="#">Sản Phẩm</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#">Apple</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">IphoneXSMAX</a></li>
+                                            <li><a href="#">Iphone8</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Samsung</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">SamsungNote10</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Giới Thiệu</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
                     </ul>
                     <div class="col-md-2 action">
                         <a href="" class="btn-action btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -383,9 +408,9 @@
                                     </div>
                                     <div class="quality">
                                         <div class="add-quality">
-                                            <span class="munis">-</span>
-                                            <span class="qua">1</span>
-                                            <span class="plus">+</span>
+                                            <span ><button id="minus" type="button">-</button></span>
+                                            <span id="qua">1</span>
+                                            <span ><button id="plus" type="button">+</button></span>
                                         </div>
                                         <a href="" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>THÊM VÀO GIỎ HÀNG</a>
                                     </div>
@@ -446,6 +471,111 @@
                 </div>
             </div>
         </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<section id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <h4 class="uppertitle-foot">Giới thiệu về chúng tôi</h4>
+                <p style="text-align: justify">Mang đến cho bạn những lựa chọn tốt nhất có thể chúng tôi đảm bảo sẽ đưa đến cho Quý khách những lựa chọn tốt nhất, Phù hợp nhất đối với từng nhu cầu của Quý khách. Hân hạnh được phục vụ Quý khách! </p><br/>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <h4 class="uppertitle-foot">Liên hệ</h4>
+                <p>Địa chỉ: 45 Lý Thường Kiệt, Phường 25, Quận 10,TP.Hồ Chí Minh</p>
+                <p>Điện thoại: 01658022219</p>
+                <p>Email: chauvannhat.contact@gmail.com</p>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2">
+                <h4 class="uppertitle-foot">Dịch vụ</h4>
+                <p><a href="#">Iphone XS MAX</a></p>
+                <p><a href="#">Iphone 8</a></p>
+                <p><a href="#">Samsung Note 10</a></p>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2">
+                <h4 class="uppertitle-foot">Fanpage</h4>
+                <p>Điện thoại giá tốt - Đến và cảm nhận</p>
+            </div>
+        </div>
+        <div class="row">
+            <p class="pull-left">© APPLESTORE . All rights reserved</p>
+            <ul class="pull-right social">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!--       --------------------------------------------------------  -->
+<section id="head">
+    <div class="top">
+        <div class="container">
+            <div class="row">
+                <div id="left">Hotline : 01658022219</div>
+                <div class="pull-right user">
+                    <a href="#"><i class="fa fa-lock" aria-hidden="true"></i> Đăng Nhập</a>
+                    <a href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i> Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1 logo"><a href="/"><img src="images/logo2.jpg" alt=" Logo" /></a></div>
+                    <ul class="col-md-9 menu">
+                        <ul class="nav">
+                            <li><a href="#">Trang Chủ</a></li>
+                            <li>
+                                <a href="#">Sản Phẩm</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#">Apple</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">IphoneXSMAX</a></li>
+                                            <li><a href="#">Iphone8</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Samsung</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">SamsungNote10</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Giới Thiệu</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </ul>
+                    <div class="col-md-2 action">
+                        <a href="" class="btn-action btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        <a href="" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section><!-- End header -->
+
+<!-- Section Home News -->
+<!-- Section Home News -->
+<div class="pages">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/" target="_self">Trang chủ</a>
+            </li>
+            <li>
+                <a href="/" target="_self"> / Quản lý giỏ hàng</a>
+        </ul>
+    </div>
+    <section id="cart">
+
     </section>
 </div>
 
