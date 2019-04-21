@@ -1,7 +1,37 @@
+.search{
+    padding:10px 10px 10px 200px;
+}
 
+#myInput {
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 60%; /* Full-width */
+  font-size: 13px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
 
-#left{
-  width:970px;
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 11px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 .pitem{
   min-height: 420px;
@@ -69,7 +99,7 @@ body {
 
 }
 .pages{
-  background-color: white;
+  background-color: #ffffe0;
   border: 1px solid #d7d7d7;
   padding: 0 0 40px 0;
 }
@@ -102,10 +132,18 @@ body {
   line-height: 1.7em;
 }
 #head{
-  background-color: white;
+  background-color: #ffffe0;
 }
-#head .top{
-  border: 1px solid #d7d7d7;
+#left{
+  width:900px;
+  color: red;
+  text-decoration: underline red ;
+}
+.top #right{
+  color:red;
+}
+.top{
+  border-bottom: 2px solid red;
   padding:10px 0;
 }
 #head .user{
@@ -126,14 +164,47 @@ body {
 #head .user a:last-child{
   border-right:0;
 }
-#head .bottom{
-  padding: 20px 0;
+.nav{
+  background-color: #ffffe0;
 }
-#head .bottom .menu{
-  list-style-type: none;
+
+.nav>li{
+  float: left;
+  margin-right: 15px;
 }
-#head .bottom .menu li{
+
+.nav>li>a{
+  text-transform: uppercase;
+  color: red;
+}
+
+.nav li{
+  position: relative;
+}
+
+.nav li a{
+  padding: 10px;
+  line-height: 20px;
   display: inline-block;
+}
+
+.nav .sub-menu{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 200px;
+  background-color: white ;
+  padding: 0px 0px;
+}
+
+.nav li:hover>.sub-menu{
+  display: block;
+}
+
+.nav>li>.sub-menu{
+  top: 50px;
+  left: 0;
 }
 #head .bottom .action{
   display: flex;
@@ -332,4 +403,21 @@ body {
 }
 #footer .foot p{
   line-height: 30px;
+}
+#footer .uppertitle-foot{
+  color: red;
+
+}
+#product .detail{
+  padding-left: 100px ;
+  line-height: 50px;
+}
+#product .detail .price h2{
+  color: red;
+}
+#product .detail .price  h3{
+  text-decoration: line-through;
+}
+#product .detail .name span {
+ color: green;
 }
