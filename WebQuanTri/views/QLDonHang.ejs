@@ -13,108 +13,73 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<section id="head">
-  <div class="top">
-    <div class="container">
-      <div class="row">
-        <div id="left">Hotline : 01658022219</div>
-        <div class="pull-right user">
-          <a href="#"><i class="fa fa-lock" aria-hidden="true"></i> Đăng Nhập</a>
-          <a href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i> Đăng Ký</a>
-        </div>
-      </div>
-    </div>
-    <div class="bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-1 logo"><a href="/"><img src="images/logo2.jpg" alt=" Logo" /></a></div>
-          <ul class="col-md-9 menu">
-            <ul class="nav">
-              <li><a href="#">Trang Chủ</a></li>
-              <li>
-                <a href="#">Sản Phẩm</a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="#">Apple</a>
-                    <ul class="sub-menu">
-                      <li><a href="#">IphoneXSMAX</a></li>
-                      <li><a href="#">Iphone8</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">Samsung</a>
-                    <ul class="sub-menu">
-                      <li><a href="#">SamsungNote10</a></li>
-                    </ul>
-                  </li>
-
-                </ul>
-              </li>
-              <li><a href="#">Giới Thiệu</a></li>
-              <li><a href="#">Liên hệ</a></li>
-            </ul>
-          </ul>
-          <div class="col-md-2 action">
-            <a href="" class="btn-action btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
-            <a href="" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</section><!-- End header -->
-
-<!-- Section Home News -->
-<!-- Section Home News -->
-<div class="pages">
+  <h2>QUẢN LÝ ĐƠN HÀNG</h2>
   <div class="container">
-    <ul class="breadcrumb">
-      <li>
-        <a href="/" target="_self">Trang chủ</a>
-      </li>
-      <li>
-        <a href="/" target="_self"> / Quản lý giỏ hàng</a>
-    </ul>
-  </div>
-  <section id="cart">
 
-  </section>
+  <div class="row">
+  <div class="col-6">
+  <table id="tableId" class="table table-hover">
+    <thead>
+      <tr>
+        <th>Mã đơn hàng</th>
+        <th>Tài khoản đặt</th>
+        <th>Trạng thái</th>
+        <th>Ngày đặt</th>
+        <th>Ngày giao</th>
+        <th>Tổng tiền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick="clickRow(this)">
+        <td>1</td>
+        <td>nguyenthinh</td>
+        <td>Đã giao</td>
+        <td>1/3/2019</td>
+        <td>4/3/2019</td>
+        <td>100000</td>
+      </tr>
+      <tr onclick="clickRow(this)">
+        <td>1</td>
+        <td>dieuhien</td>
+        <td>Chưa giao</td>
+        <td>1/4/2019</td>
+        <td>4/4/2019</td>
+        <td>200000</td>
+      </tr>
+      <tr onclick="clickRow(this)">
+        <td>1</td>
+        <td>vannhat</td>
+        <td>Đang giao</td>
+        <td>1/5/2019</td>
+        <td>4/5/2019</td>
+        <td>200000</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<!-- Footer -->
-<section id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-4">
-        <h4 class="uppertitle-foot">Giới thiệu về chúng tôi</h4>
-        <p style="text-align: justify">Mang đến cho bạn những lựa chọn tốt nhất có thể chúng tôi đảm bảo sẽ đưa đến cho Quý khách những lựa chọn tốt nhất, Phù hợp nhất đối với từng nhu cầu của Quý khách. Hân hạnh được phục vụ Quý khách! </p><br/>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-4">
-        <h4 class="uppertitle-foot">Liên hệ</h4>
-        <p>Địa chỉ: 45 Lý Thường Kiệt, Phường 25, Quận 10,TP.Hồ Chí Minh</p>
-        <p>Điện thoại: 01658022219</p>
-        <p>Email: chauvannhat.contact@gmail.com</p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-2">
-        <h4 class="uppertitle-foot">Dịch vụ</h4>
-        <p><a href="#">Iphone XS MAX</a></p>
-        <p><a href="#">Iphone 8</a></p>
-        <p><a href="#">Samsung Note 10</a></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-2">
-        <h4 class="uppertitle-foot">Fanpage</h4>
-        <p>Điện thoại giá tốt - Đến và cảm nhận</p>
-      </div>
+    <div class="col-6">
+    <table id="tableSP" class="table table-hover" style="display:none">
+      <thead>
+        <tr>
+          <th>Tên Sản Phẩm</th> <th>Số lượng</th> <th>Giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Iphone 11</td> <td>2</td> <td>200000</td>
+        </tr>
+        <tr>
+          <td>Iphone 12</td> <td>1</td> <td>100000</td>
+        </tr>
+        <tr>
+          <td>Iphone 13</td> <td>3</td> <td>300000</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
-    <div class="row">
-      <p class="pull-left">© APPLESTORE . All rights reserved</p>
-      <ul class="pull-right social">
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</section>
+
+</div>
+</div>
 </body>
 </html>
