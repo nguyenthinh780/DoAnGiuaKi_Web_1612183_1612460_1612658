@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>APPLESTORE</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />}
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript" src="javascripts/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -40,14 +40,14 @@
                                     <li>
                                         <a href="#">Apple</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">IphoneXSMAX</a></li>
-                                            <li><a href="#">Iphone8</a></li>
+                                            <li><a href="/iphonesxmax">IphoneXSMAX</a></li>
+                                            <li><a href="/iphone8">Iphone8</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#">Samsung</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">SamsungNote10</a></li>
+                                            <li><a href="/note10">SamsungNote10</a></li>
                                         </ul>
                                     </li>
 
@@ -59,30 +59,58 @@
                     </ul>
                     <div class="col-md-2 action">
                         <a href="" class="btn-action btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        <a href="" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        <a href="/cart" class="btn-action btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 </section><!-- End header -->
 
 <!-- Section Home News -->
-<!-- Section Home News -->
-<div class="pages">
+<section id="news">
     <div class="container">
-        <ul class="breadcrumb">
-            <li>
-                <a href="/" target="_self">Trang chủ</a>
-            </li>
-            <li>
-                <a href="/" target="_self"> / Quản lý giỏ hàng</a>
-        </ul>
-    </div>
-    <section id="cart">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 pitem">
+                <div  class="img-container">
+                    <a href="/iphonesxmax">
+                        <img src="images/iphonexs.jpg" alt="Sản phẩm" />
+                        <span class="sale">-15%</span>
 
-    </section>
-</div>
+                    </a>
+                    <div class="actions">
+                        <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="info">
+                    <a href="#"><h3 class="upper">Iphone XS MAX</h3></a>
+                    <span class="upper price">22.9900.000 <sup>đ</sup></span>
+                    <span class="upper old-price">26.990.000 <sup>đ</sup></span>
+                </div>
+            </div>
+                <div class="col-xs-6 col-sm-3 pitem">
+                    <div  class="img-container">
+                        <a href="/iphone8">
+                            <img src="images/iphone8.jpg" alt="Sản phẩm" />
+                            <span class="sale">-20%</span>
+                        </a>
+                        <div class="actions">
+                            <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <a href="#"><h3 class="upper">Iphone 8</h3></a>
+                        <span class="upper price">20.000.000 <sup>đ</sup></span>
+                        <span class="upper old-price">16.000.000 <sup>đ</sup></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section Home News -->
 
 <!-- Footer -->
 <section id="footer">
