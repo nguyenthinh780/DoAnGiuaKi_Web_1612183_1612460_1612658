@@ -21,5 +21,14 @@ router.get('/note10', function(req, res, next) {
 router.get('/cart', function(req, res, next) {
   res.render('cart', {page:'cart', menuId:'cart'});
 });
+router.get('/login', function(req, res, next) {
+  res.render('login', {page:'login', menuId:'login'});
+});
+router.get('/signup', function(req, res, next) {
+  res.render('signup', {page:'signup', menuId:'signup'});
+});
+router.get('/personal', function(req, res, next) {
+  res.render('personal', {page:'personal', menuId:'personal'});
+});
 
 module.exports = router;
