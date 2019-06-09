@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 #{title}: #{stall.stall_name}
+
+  p #[strong Miêu tả:] #{stall.stall_description}
+
+  div(style='margin-left:20px;margin-top:20px')
+    h4 Sản phẩm
+
+    dl
+      each product in products
+        dt
+          a(href=product.url) #{product.product_name}
+
+      else
+        p Không có sản phẩm trong gian hàng này.

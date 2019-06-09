@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Order: #{order._id}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 #{order.type} | #{order.order_date_formatted}
+
+    dl
+      each orderdetail in order_orderdetails
+        dt
+          a(href=orderdetail.url) #{orderdetail.product.product_name}
+        p Số lượng: #{orderdetail.number}
+
+      else
+        p Đơn hàng này không có sản phẩm.

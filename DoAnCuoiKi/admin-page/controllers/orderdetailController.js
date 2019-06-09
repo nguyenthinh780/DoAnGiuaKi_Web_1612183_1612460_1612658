@@ -1,5 +1,7 @@
 var OrderDetail = require('../models/orderdetail');
 
+var async = require('async');
+
 // Display list of all OrderDetail.
 exports.orderdetail_list = function(req, res) {
     res.send('NOT IMPLEMENTED: OrderDetail list');

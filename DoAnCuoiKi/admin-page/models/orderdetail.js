@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var OrderDetailSchema = new Schema(
   {
-    order_id: { type: Schema.Types.ObjectId, ref: 'Order', required: true},
-    product_id: { type: Schema.Types.ObjectId, ref: 'Product', required: true},
+    order: { type: Schema.Types.ObjectId, ref: 'Order', required: true},
+    product: { type: Schema.Types.ObjectId, ref: 'Product', required: true},
     number: {type: Number, required: true, max: 5000}
   }
 );

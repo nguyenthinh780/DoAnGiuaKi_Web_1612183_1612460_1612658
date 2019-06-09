@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+  each account in list_accounts
+      li
+        a(href=account.url) #{account.login_name}
+        |  (#{account.type})
+
+  else
+    li Không có tài khoản trong cơ sở dữ liệu.

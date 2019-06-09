@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+  each order in list_orders
+      li
+        a(href=order.url) #{order._id}
+        |  (#{order.type}) |  (#{order.order_date_formatted})
+
+  else
+    li Không có tài khoản trong cơ sở dữ liệu.

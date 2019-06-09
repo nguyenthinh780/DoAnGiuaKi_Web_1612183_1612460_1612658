@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+  each stall in list_stalls
+      li
+        a(href=stall.url) #{stall.stall_name}
+
+  else
+    li Không có giang hàng trong cơ sở dữ liệu.

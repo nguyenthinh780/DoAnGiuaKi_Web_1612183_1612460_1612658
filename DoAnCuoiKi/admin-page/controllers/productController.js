@@ -1,13 +1,42 @@
 var Product = require('../models/product');
+var Stall = require('../models/stall');
+
+var async = require('async');
 
 // Display list of all Product.
 exports.product_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Product list');
+
+  Product.find({}, 'product_name stall')
+    .populate('stall')
+    .exec(function (err, list_products) {
+      if (err) { return next(err); }
+      // Successful, so render.
+      res.render('product_list', { title: 'Product List', list_products:  list_products});
+    });
+
 };
 
 // Display detail page for a specific Product.
 exports.product_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Product detail: ' + req.params.id);
+
+  async.parallel({
+      product: function(callback) {
+
+          Product.findById(req.params.id)
+            .populate('stall')
+            .exec(callback);
+      },
+  }, function(err, results) {
+      if (err) { return next(err); }
+      if (results.product==null) { // No results.
+          var err = new Error('Book not found');
+          err.status = 404;
+          return next(err);
+      }
+      // Successful, so render.
+      res.render('product_detail', { title: 'Title', product: results.product } );
+  });
+
 };
 
 // Display Product create form on GET.
