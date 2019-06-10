@@ -1,0 +1,85 @@
+.bg-light.py-3
+  .container
+    .row
+      .col-md-12.mb-0
+        a(href='/') Trang chủ
+        span.mx-2.mb-0 /
+        a(href='.') {{data.brand}}
+        span.mx-2.mb-0 /
+        strong.text-black {{title}}
+.site-section
+  .container
+    .row
+      .col-md-6
+        img.img-fluid(src='/images/iphoneXSMax.png', alt='Image')
+      .col-md-6
+        h2.text-black {{data.name}}
+        p
+          strong.text-primary.h4 {{data.price}}
+        ul
+          | {{#each data.shortInfo}}
+          li {{this}}
+          |                     {{/each}}
+        span.text-black Chọn màu:
+        .mb-1.d-flex
+          | {{#each data.color}}
+          label.d-flex.mr-3.mb-3(for='{{this}}')
+            span.d-inline-block.mr-2(style='top:-2px; position: relative;')
+              input(type='radio', id='{{this}}', name='color')
+            span.d-inline-block.text-black {{this}}
+          |                     {{/each}}
+        .mb-5
+          .input-group.mb-3(style='max-width: 120px;')
+            .input-group-prepend
+              button.btn.btn-outline-primary.js-btn-minus(type='button') −
+            input.form-control.text-center(type='text', value='1', placeholder='', aria-label='Example text with button addon', aria-describedby='button-addon1')
+            .input-group-append
+              button.btn.btn-outline-primary.js-btn-plus(type='button') +
+        p
+          a.buy-now.btn.btn-sm.btn-primary(href='/cart') Thêm vào giỏ hàng
+.site-section.block-3.site-blocks-2.bg-light
+  .container
+    .row.justify-content-center
+      .col-md-7.site-section-heading.text-center.pt-4
+        h2 Thông tin chi tiết
+    table#chi-tiet.table.table-bordered.table-detail.table-striped(cellspacing='0')
+      colgroup
+        col(style='width: 25%;')
+        col
+      tbody
+        tr
+          td Thương hiệu
+          td
+            a(href='.') {{data.brand}}
+        tr
+          td Kích thước màn hình
+          td
+            | {{data.info.screen}}
+        tr
+          td Hệ điều hành
+          td
+            | {{data.info.os}}
+        tr
+          td Camera trước
+          td
+            | {{data.info.frontCamera}}
+        tr
+          td Camera sau
+          td
+            | {{data.info.backCamera}}
+        tr
+          td Bộ nhớ RAM
+          td
+            | {{data.info.ram}}
+        tr
+          td Bộ nhớ trong
+          td
+            | {{data.info.rom}}
+        tr
+          td Dung lượng pin
+          td
+            | {{data.info.pin}}
+        tr
+          td Số khe sim
+          td
+            | {{data.info.sim}}

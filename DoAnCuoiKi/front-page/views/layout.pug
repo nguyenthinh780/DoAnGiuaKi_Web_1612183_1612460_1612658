@@ -1,7 +1,352 @@
 doctype html
 html
   head
-    title= title
+    title APPLESTORE
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Trang danh sách sản phẩm
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.7.0/css/all.css', integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='javascripts/script.js')
   body
-    block content
+    section#head
+      .top
+        .container
+          .row
+            #left Hotline : 01658022219
+            .pull-right.user
+              a(href='/login')
+                i.fa.fa-lock(aria-hidden='true')
+                |  Đăng Nhập
+              a(href='/signup')
+                i.fa.fa-get-pocket(aria-hidden='true')
+                |  Đăng Ký
+        .bottom
+          .container
+            .row
+              .col-md-1.logo
+                a(href='/')
+                  img(src='images/logo2.jpg', alt=' Logo')
+              ul.col-md-9.menu
+                ul.nav
+                  li
+                    a(href='/api') Trang Chủ
+                  li
+                    a(href='/api/all') Sản Phẩm
+                    ul.sub-menu
+                      li
+                        a(href='#') Apple
+                        ul.sub-menu
+                          li
+                            a(href='/iphonesxmax') IphoneXSMAX
+                          li
+                            a(href='/iphone8') Iphone8
+                      li
+                        a(href='#') Samsung
+                        ul.sub-menu
+                          li
+                            a(href='/note10') SamsungNote10
+                  li
+                    a(href='#') Giới Thiệu
+                  li
+                    a(href='#') Liên hệ
+              .col-md-2.action
+                a.btn-action.btn-search(href='')
+                  i.fa.fa-search(aria-hidden='true')
+                a.btn-action.btn-cart(href='/cart')
+                  i.fa.fa-shopping-cart(aria-hidden='true')
+            .search
+              input#myInput(type='text', onkeyup='myFunction()', placeholder='Nhâp tên sản phẩm cần tìm ...', title='Type in a name')
+              ul#myUL
+                li
+                  a(href='/') Apple
+                li
+                  a(href='/') SamSung
+                li
+                  a(href='/iphonesxmax') Iphone XS Max
+                li
+                  a(href='/iphone8') Iphone 8
+                li
+                  a(href='/note10') SamSung Note 10
+    // End header
+
+    // Section Home News
+    .pages
+      .container
+        ul.breadcrumb
+          li
+            a(href='/', target='_self') Tất cả sản phẩm
+      section#news
+        .container
+          .row
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphonesxmax')
+                  img(src='images/iphonexs.jpg', alt='Sản phẩm')
+                  span.sale -15%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone XS MAX
+                span.upper.price
+                  | 22.9900.000
+                  sup đ
+                span.upper.old-price
+                  | 26.990.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphonesxmax')
+                  img(src='images/iphonexs.jpg', alt='Sản phẩm')
+                  span.sale -15%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone XS MAX
+                span.upper.price
+                  | 22.9900.000
+                  sup đ
+                span.upper.old-price
+                  | 26.990.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphonesxmax')
+                  img(src='images/iphonexs.jpg', alt='Sản phẩm')
+                  span.sale -15%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone XS MAX
+                span.upper.price
+                  | 22.9900.000
+                  sup đ
+                span.upper.old-price
+                  | 26.990.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphonesxmax')
+                  img(src='images/iphonexs.jpg', alt='Sản phẩm')
+                  span.sale -15%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone XS MAX
+                span.upper.price
+                  | 22.9900.000
+                  sup đ
+                span.upper.old-price
+                  | 26.990.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphone8')
+                  img(src='images/iphone8.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone 8
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphone8')
+                  img(src='images/iphone8.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone 8
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphone8')
+                  img(src='images/iphone8.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone 8
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/iphone8')
+                  img(src='images/iphone8.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Iphone 8
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/note10')
+                  img(src='images/samsung.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Samsung Note 10
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/note10')
+                  img(src='images/samsung.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Samsung Note 10
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/note10')
+                  img(src='images/samsung.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Samsung Note 10
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+            .col-xs-6.col-sm-3.pitem
+              .img-container
+                a(href='/note10')
+                  img(src='images/samsung.jpg', alt='Sản phẩm')
+                  span.sale -20%
+                .actions
+                  a(href='#')
+                    i.fa.fa-star(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-cart-plus(aria-hidden='true')
+              .info
+                a(href='#')
+                  h3.upper Samsung Note 10
+                span.upper.price
+                  | 20.000.000
+                  sup đ
+                span.upper.old-price
+                  | 16.000.000
+                  sup đ
+
+    // Footer
+    section#footer
+      .container
+        .row
+          .col-xs-6.col-sm-6.col-md-4
+            h4.uppertitle-foot Giới thiệu về chúng tôi
+            p(style='text-align: justify')
+              | Mang đến cho bạn những lựa chọn tốt nhất có thể chúng tôi đảm bảo sẽ đưa đến cho Quý khách những lựa chọn tốt nhất, Phù hợp nhất đối với từng nhu cầu của Quý khách. Hân hạnh được phục vụ Quý khách!
+            br
+          .col-xs-6.col-sm-6.col-md-4
+            h4.uppertitle-foot Liên hệ
+            p Địa chỉ: 45 Lý Thường Kiệt, Phường 25, Quận 10,TP.Hồ Chí Minh
+            p Điện thoại: 01658022219
+            p Email: chauvannhat.contact@gmail.com
+          .col-xs-6.col-sm-6.col-md-2
+            h4.uppertitle-foot Dịch vụ
+            p
+              a(href='#') Iphone XS MAX
+            p
+              a(href='#') Iphone 8
+            p
+              a(href='#') Samsung Note 10
+          .col-xs-6.col-sm-6.col-md-2
+            h4.uppertitle-foot Fanpage
+            p Điện thoại giá tốt - Đến và cảm nhận
+        .row
+          p.pull-left © APPLESTORE . All rights reserved
+          ul.pull-right.social
+            li
+              a(href='#')
+                i.fa.fa-facebook(aria-hidden='true')
+            li
+              a(href='#')
+                i.fa.fa-twitter(aria-hidden='true')
+            li
+              a(href='#')
+                i.fa.fa-google-plus(aria-hidden='true')
+            block content

@@ -68,10 +68,10 @@ function stallCreate(stall_name, stall_description, cb) {
   }  );
 }
 
-function productCreate(product_name, stall_id, brand, product_description, price, cb) {
+function productCreate(product_name, stall, brand, product_description, price, cb) {
   productdetail = {
     product_name: product_name,
-    stall_id: stall_id,
+    stall: stall,
     price: price }
   if (brand != false)  productdetail.brand = brand
   if (product_description != false)  productdetail.product_description = product_description
@@ -89,9 +89,10 @@ function productCreate(product_name, stall_id, brand, product_description, price
   }  );
 }
 
-function orderCreate(order_date, type, cb) {
+function orderCreate(order_date, type, account, cb) {
   orderdetail = {
-    type: type
+    type: type,
+    account: account
   }
   if (order_date != false)  orderdetail.order_date = order_date
 
@@ -107,10 +108,10 @@ function orderCreate(order_date, type, cb) {
   }  );
 }
 
-function orderdetailCreate(order_id, product_id, number, cb) {
+function orderdetailCreate(order, product, number, cb) {
   orderdetaildetail = {
-    order_id: order_id,
-    product_id: product_id,
+    order: order,
+    product: product,
     number: number
   }
 
@@ -126,7 +127,7 @@ function orderdetailCreate(order_id, product_id, number, cb) {
   }  );
 }
 
-function createAccountStallOrder(cb) {
+function createAccountStall(cb) {
     async.series([
         function(callback) {
           accountCreate('admin', '123456', 'nguyen van admin', '1998-05-15', 'admin@admin.com','123456','Admin', callback);
@@ -145,15 +146,6 @@ function createAccountStallOrder(cb) {
         },
         function(callback) {
           stallCreate('Phụ kiện', 'Dây sạc, tai nghe và nhiều thứ khác', callback);
-        },
-        function(callback) {
-          orderCreate(false, 'Chưa giao', callback);
-        },
-        function(callback) {
-          orderCreate(false, 'Đang giao', callback);
-        },
-        function(callback) {
-          orderCreate(false, 'Đã giao', callback);
         }
         ],
         // optional callback
@@ -200,10 +192,26 @@ function createOrderDetail(cb) {
 }
 
 
+function createOrder(cb) {
+    async.parallel([
+        function(callback) {
+          orderCreate(false, 'Chưa giao', accounts[2], callback);
+        },
+        function(callback) {
+          orderCreate(false, 'Đang giao', accounts[2], callback);
+        },
+        function(callback) {
+          orderCreate(false, 'Đã giao', accounts[2], callback);
+        }
+        ],
+        // optional callback
+        cb);
+}
 
 async.series([
-    createAccountStallOrder,
+    createAccountStall,
     createProduct,
+    createOrder,
     createOrderDetail
 ],
 // Optional callback

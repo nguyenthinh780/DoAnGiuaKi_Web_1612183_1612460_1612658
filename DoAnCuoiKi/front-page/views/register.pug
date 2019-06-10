@@ -1,0 +1,46 @@
+.bg-light.py-3
+  .container
+    .row
+      .col-md-12.mb-0
+        a(href='/') Trang chủ
+        span.mx-2.mb-0 /
+        strong.text-black {{title}}
+.site-section
+  .container
+    .row.justify-content-center
+      .col-md-6.mb-5.mb-md-0
+        h2.h3.mb-3.text-black {{title}}
+        .p-3.p-lg-5.border
+          | {{message}}
+          #error-message.ui-state-error
+          form(method='post')
+            .form-group.row.mb-5
+              .col-md
+                label.text-black(for='email')
+                  | Địa chỉ email
+                  span.text-danger *
+                input#email.form-control(type='email', name='email')
+            .form-group.row.mb-5
+              .col-md
+                label.text-black(for='password')
+                  | Mật khẩu
+                  span.text-danger *
+                input#password.form-control(type='password', name='password')
+            .form-group.row
+              .col-md
+                input#register.btn.btn-primary.btn-lg.py-3.btn-block(type='submit', value='TẠO TÀI KHOẢN')
+| {{#extend "scripts"}}
+script.
+  $('#email').keyup(function() {
+  $.getJSON('/api/user/check?email='+$('#email').val(), function (data){
+  if (data) {
+  $('#error-message').html('Email đã tồn tại. Vui lòng chọn email khác.');
+  $("#register").attr("disabled", true);
+  }
+  else {
+  $('#error-message').html('');
+  $("#register").attr("disabled", false);
+  }
+  })
+  });
+| {{/extend}}

@@ -1,0 +1,43 @@
+.bg-light.py-3
+  .container
+    .row
+      .col-md-12.mb-0
+        a(href='/') Trang chủ
+        span.mx-2.mb-0 /
+        strong.text-black {{title}}
+.site-section
+  .container
+    .row.justify-content-center
+      .col-md-6.mb-5.mb-md-0
+        h2.h3.mb-3.text-black {{title}}
+        .p-3.p-lg-5.border
+          | {{#if data}}
+          .form-group.row
+            .col-sm
+              label.text-black(for='c_email_address') Địa chỉ email
+              input#c_email_address.form-control(type='text', value='{{data.email}}', disabled='', name='c_email_address')
+          .form-group.row
+            .col-sm
+              label.text-black(for='c_name') Họ và tên
+              input#c_name.form-control(type='text', value='{{data.name}}', name='c_name')
+          .form-group.row
+            .col-sm
+              label.text-black(for='c_address') Địa chỉ
+              input#c_address.form-control(type='text', value='{{data.address}}', name='c_address', placeholder='Địa chỉ và tên đường')
+          .form-group.row
+            .col-md-6
+              label.text-black(for='c_ward') Phường
+              input#c_ward.form-control(type='text', value='{{data.ward}}', name='c_ward')
+            .col-md-6
+              label.text-black(for='c_district') Quận
+              input#c_district.form-control(type='text', value='{{data.district}}', name='c_district')
+          .form-group.row
+            .col-sm
+              label.text-black(for='c_phone') Số điện thoại
+              input#c_phone.form-control(type='text', value='{{data.phone}}', name='c_phone', placeholder='Điện thoại')
+          .form-group.row
+            .col-md
+              button.btn.btn-primary.btn-lg.py-3.btn-block(onclick="window.location='/'")
+                | Cập
+                | nhật
+          |                     {{/if}}
