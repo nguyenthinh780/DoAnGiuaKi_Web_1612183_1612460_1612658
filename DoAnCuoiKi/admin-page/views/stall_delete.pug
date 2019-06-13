@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{stall.name}
+  p= stall.lifespan
+
+  if stall_products.length
+
+    p #[strong Hãy xóa những sản phẩm này trước khi xóa gian hàng.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Products
+
+      dl
+      each product in stall_products
+        dt
+          a(href=product.url) #{product.product_name}
+
+  else
+    p Bạn muốn xóa gian hàng này?
+
+    form(method='POST' action='')
+      div.form-group
+        input#stallid.form-control(type='hidden',name='stallid', required='true', value=stall._id )
+
+      button.btn.btn-primary(type='submit') Xoá

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{product.product_name}
+
+  p #[strong stall:]
+    a(href=product.stall.url) #{product.stall.stall_name}
+  p #[strong Hãng sản xuất:] #{product.brand}
+  p #[strong Mô tả:] #{product.product_description}
+  p #[strong price:] #{product.price}
+
+  hr
+  p Bạn muốn xóa sản phẩm này?
+
+  form(method='POST' action='')
+    div.form-group
+      input#id.form-control(type='hidden',name='id', required='true', value=product._id )
+
+    button.btn.btn-primary(type='submit') Xóa

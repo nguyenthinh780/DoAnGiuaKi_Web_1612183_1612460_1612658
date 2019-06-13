@@ -8,3 +8,9 @@ block content
   p #[strong Nhãn hàng:] #{product.brand}
   p #[strong Miêu tả:] #{product.product_description}
   p #[strong Giá:] #{product.price}
+
+  hr
+  p
+    a(href=product.url+'/delete') Xóa sản phẩm
+  p
+    a(href=product.url+'/update') Update sản phẩm

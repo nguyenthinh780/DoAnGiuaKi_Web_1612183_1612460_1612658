@@ -4,7 +4,7 @@ block content
   h1 #{title}: #{account.login_name}
 
   p #[strong Tên:] #{account.name}
-  p #[strong Ngày sinh:] #{account.birth}
+  p #[strong Ngày sinh:] #{account.birth_formatted}
   p #[strong Email:] #{account.email}
   p #[strong Điện thoại:] #{account.phone}
   p #[strong Loại tài khoản:] #{account.type}
@@ -20,3 +20,8 @@ block content
           |  (#{val.type}) |  (#{val.order_date_formatted})
   else
       p Tài khoản này không có hoạt động.
+  hr
+  p
+    a(href=account.url+'/delete') Xóa tài khoản
+  p
+    a(href=account.url+'/update') Update tài khoản

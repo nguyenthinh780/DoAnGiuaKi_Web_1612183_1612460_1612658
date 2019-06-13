@@ -1,6 +1,8 @@
 var Order = require('../models/order');
 var OrderDetail = require('../models/orderdetail');
 
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 var async = require('async');
 
 // Display list of all Order.
@@ -26,7 +28,7 @@ exports.order_detail = function(req, res) {
 
      order_orderdetails: function(callback) {
          OrderDetail.find({ 'order': req.params.id })
-         .populate('product')
+         .populate('order')
            .exec(callback);
      },
 
@@ -64,11 +66,57 @@ exports.order_delete_post = function(req, res) {
 };
 
 // Display Order update form on GET.
-exports.order_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Order update GET');
+exports.order_update_get = function (req, res, next) {
+
+      Order.findById(req.params.id, function (err, order) {
+          if (err) { return next(err); }
+          if (order == null) { // No results.
+              var err = new Error('Order not found');
+              err.status = 404;
+              return next(err);
+          }
+          // Success.
+          res.render('order_form', { title: 'Update Order', order: order });
+
+      });
 };
 
 // Handle Order update on POST.
-exports.order_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Order update POST');
-};
+exports.order_update_post = [
+
+    // Validate fields.
+    body('type').isLength({ min: 1 }).trim().withMessage('Hãy chọn trạng thái.'),
+
+    // Sanitize fields.
+    sanitizeBody('type').escape(),
+
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+
+          var order = new Order(
+              {
+                account: req.body.account,
+                order_date:req.body.order_date,
+                type: req.body.type,
+                  _id: req.params.id
+              }
+          );
+
+        if (!errors.isEmpty()) {
+        // There are errors. Render the form again with sanitized values and error messages.
+        res.render('order_form', { title: 'Update Order', order: order, errors: errors.array() });
+        return;
+    }
+    else {
+        // Data from form is valid. Update the record.
+        Order.findByIdAndUpdate(req.params.id, order, {}, function (err, theorder) {
+            if (err) { return next(err); }
+            // Successful - redirect to genre detail page.
+            res.redirect(theorder.url);
+        });
+    }
+}
+];

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Update đơn hàng
+  p Đơn hàng: #{order._id}
+  form(method='POST' action='')
+    div.form-group
+      label(for='type') Trạng thái:
+      select#type.form-control(type='select', placeholder='Chọn loại tài khoản' name='type' required='true' )
+        option(value='Chưa giao') Chưa giao
+        option(value='Đang giao') Đang giao
+        option(value='Đã giao') Đã giao
+    button.btn.btn-primary(type='submit') Update đơn hàng
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

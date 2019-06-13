@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 var Schema = mongoose.Schema;
 
@@ -19,6 +20,13 @@ AccountSchema
 .virtual('url')
 .get(function () {
   return '/api/account/' + this._id;
+});
+
+
+AccountSchema
+.virtual('birth_formatted')
+.get(function () {
+  return moment(this.birth).format('MMMM Do, YYYY');
 });
 
 //Export model

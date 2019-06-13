@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1 Sản phẩm
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='product_name') Tên sản phẩm:
+      input#product_name.form-control(type='text' placeholder='Tên hiển thị của sản phẩm' name='product_name' required='true' value=(undefined===product ? '' : product.product_name) )
+
+
+    div.form-group
+      label(for='stall') Gian hàng:
+      select#stall.form-control(type='select', placeholder='Chọn gian hàng' name='stall' required='true' )
+        for stall in stalls
+          if product
+            option(value=stall._id selected=(stall._id.toString()==product.stall ? 'selected' : false) ) #{stall.stall_name}
+          else
+            option(value=stall._id) #{stall.stall_name}
+
+    div.form-group
+      label(for='brand') Hãng sản xuất:
+      input#brand.form-control(type='text' placeholder='Apple, Samsung, ...' name='brand' required='true' value=(undefined===product ? '' : product.brand) )
+
+    div.form-group
+      label(for='product_description') Mô tả:
+      input#product_description.form-control(type='text' placeholder='Mô tả sản phẩm' name='product_description' value=(undefined===product ? '' : product.product_description) )
+    div.form-group
+      label(for='price') Giá:
+      input#price.form-control(type='text' name='price' value=(undefined===product ? '' : product.price) )
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

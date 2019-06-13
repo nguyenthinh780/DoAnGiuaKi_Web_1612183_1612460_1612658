@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Gian hàng
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='stall_name') Tên gian hàng:
+      input#stall_name.form-control(type='text', placeholder='Điện thoại, Máy tính bảng, ...' name='stall_name'  required='true' value=(undefined===stall ? '' : stall.stall_name))
+      label(for='stall_description') Mô tả gian hàng:
+      input#stall_description.form-control(type='text' placeholder='Diễn tả sản phẩm thuộc gian hàng' name='stall_description'  value=(undefined===stall ? '' : stall_description))
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

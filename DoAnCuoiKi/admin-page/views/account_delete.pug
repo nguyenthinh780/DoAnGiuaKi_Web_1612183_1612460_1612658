@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{login_name}
+  p= account.lifespan
+
+  if account_orders.length
+
+    p #[strong Tài khoản này là đã từng order, không thể xóa.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Đơn hàng
+
+      dl
+      each order in account_orders
+        dt
+          a(href=order.url) #{order._id}
+        dd #{order.summary}
+
+  else
+    p Bạn muốn xóa tài khoản này?
+
+    form(method='POST' action='')
+      div.form-group
+        input#accountid.form-control(type='hidden',name='accountid', required='true', value=account._id )
+
+      button.btn.btn-primary(type='submit') Delete

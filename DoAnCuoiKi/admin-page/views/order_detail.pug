@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  h1 Order: #{order._id}
+  h1 Đơn hàng: #{order._id}
 
   div(style='margin-left:20px;margin-top:20px')
 
@@ -16,3 +16,6 @@ block content
 
       else
         p Đơn hàng này không có sản phẩm.
+  hr
+  p
+    a(href=order.url+'/update') Update đơn hàng
