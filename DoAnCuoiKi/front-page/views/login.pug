@@ -1,0 +1,26 @@
+// Section Home News
+.pages
+  .container
+    ul.breadcrumb
+      li
+        a(href='/', target='_self') Trang chủ
+      li
+        a(href='/', target='_self')  / Sản phẩm
+      li.active  / Login
+  section#product
+    .container
+      .row.box
+        .col-xs-12
+          h4.title-4
+            span Đánh giá
+        .col-xs-12.col-sm-4
+          form#contact-form(action='#contact-form', method='post')
+            .form-group
+              label Email:
+              input.form-control(name='email', tabindex='2', type='email')
+            .form-group
+              label Mật Khẩu
+              input.form-control(type='password', name='password', minlength='8', required='')
+            .form-group
+              input(name='contact', type='hidden', value='true')
+              button.btn.btn-primary.btn-vtech(type='submit') Đăng Nhập
