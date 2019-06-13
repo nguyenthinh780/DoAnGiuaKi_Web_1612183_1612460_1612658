@@ -1,74 +1,56 @@
-.bg-light.py-3
-  .container
-    .row
-      .col-md-12.mb-0
-        a(href='/') Trang chủ
-        span.mx-2.mb-0 /
-        strong.text-black {{title}}
-.site-section
-  .container
-    .row.mb-5
-      form.col-md-12(method='post')
-        .site-blocks-table
-          | {{#each data}}
-          | {{/each}}
-          table.table.table-bordered
-            thead
-              tr
-                th.product-thumbnail Ảnh
-                th.product-name Tên sản phẩm
-                th.product-price Đơn giá
-                th.product-quantity Số lượng
-                th.product-total Thành tiền
-                th.product-remove Xoá khỏi giỏ hàng
-            tbody
-              tr
-                td.product-thumbnail
-                  img.img-fluid(src='{{this.image}}', alt='Image')
-                td.product-name
-                  h2.h5.text-black {{this.name}}
-                td {{this.price}}
-                td
-                  .input-group.mb-3(style='max-width: 120px;')
-                    .input-group-prepend
-                      button.btn.btn-outline-primary.js-btn-minus(type='button') −
-                    input.form-control.text-center(type='text', value='{{this.count}}', disabled='', placeholder='', aria-label='Example text with button addon', aria-describedby='button-addon1')
-                    .input-group-append
-                      button.btn.btn-outline-primary.js-btn-plus(type='button') +
-                td {{this.total}}
-                td
-                  a.btn.btn-primary.btn-sm(href='#') X
-    .row
-      .col-md-6
-        .row.mb-5
-          .col-md-6.mb-3.mb-md-0
-            button.btn.btn-primary.btn-sm.btn-block Cập nhật giỏ hàng
-          .col-md-6
-            button.btn.btn-outline-primary.btn-sm.btn-block Tiếp tục mua sắm
+
+    .bg-light.py-3
+      .container
         .row
-          .col-md-12
-            label.text-black.h4(for='coupon') Mã giảm giá
-            p Nhập mã giảm giá của bạn để nhận ưu đãi.
-          .col-md-8.mb-3.mb-md-0
-            input#coupon.form-control.py-3(type='text', placeholder='SALE50')
-          .col-md-4
-            button.btn.btn-primary.btn-sm Kiểm tra
-      .col-md-6.pl-5
-        .row.justify-content-end
-          .col-md-7
-            .row
-              .col-md-12.text-right.border-bottom.mb-5
-                h3.text-black.h4.text-uppercase Tổng đơn hàng
-            .row.mb-3
-              .col-md-6
-                span.text-black Tổng tạm tính
-              .col-md-6.text-right
-                strong.text-black {{sum}}
+          .col-md-12.mb-0
+            a(href='/api') Trang chủ
+            span.mx-2.mb-0 /
+            strong.text-black Giỏ hàng
+    .site-section
+      .container
+        .row.mb-5
+          form.col-md-12(method='post')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.product-name Tên sản phẩm
+                    th.product-price Đơn giá
+                    th.product-quantity Số lượng
+                    th.product-total Thành tiền
+                    th.product-remove Xoá khỏi giỏ hàng
+                tbody
+                  tr
+                    td.product-name
+                      h2.h5.text-black #{product.product_name}
+                    td #{product.price}
+                    td
+                      .input-group.mb-3(style='max-width: 120px;')
+                        .input-group-prepend
+                          button.btn.btn-outline-primary.js-btn-minus(type='button') −
+                        input.form-control.text-center(type='text', value='#{product.count}', disabled='', placeholder='', aria-label='Example text with button addon', aria-describedby='button-addon1')
+                        .input-group-append
+                          button.btn.btn-outline-primary.js-btn-plus(type='button') +
+                    td #{product.total}
+                    td
+                      a.btn.btn-primary.btn-sm(href='#') X
+        .row
+          .col-md-6
             .row.mb-5
+              .col-md-6.mb-3.mb-md-0
+                button.btn.btn-primary.btn-sm.btn-block Cập nhật giỏ hàng
               .col-md-6
-                span.text-black Tổng cộng
-              .col-md-6.text-right
-                strong.text-black {{sum}}
-            .row
-              .col-md-12
-                button.btn.btn-primary.btn-lg.py-3.btn-block(onclick="window.location='/checkout'") Thanh toán
+                button.btn.btn-outline-primary.btn-sm.btn-block Tiếp tục mua sắm
+          .col-md-6.pl-5
+            .row.justify-content-end
+              .col-md-7
+                .row
+                  .col-md-12.text-right.border-bottom.mb-5
+                    h3.text-black.h4.text-uppercase Tổng đơn hàng
+                .row.mb-5
+                  .col-md-6
+                    span.text-black Tổng cộng
+                  .col-md-6.text-right
+                    strong.text-black #{product.total}
+                .row
+                  .col-md-12
+                    button.btn.btn-primary.btn-lg.py-3.btn-block(onclick="window.location='/checkout'") Thanh toán

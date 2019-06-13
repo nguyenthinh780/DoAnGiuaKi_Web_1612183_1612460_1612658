@@ -2,32 +2,31 @@
   .container
     .row
       .col-md-12.mb-0
-        a(href='/') Trang chủ
+        a(href='/api') Trang chủ
         span.mx-2.mb-0 /
-        a(href='.') {{data.brand}}
+        a(href='.') #{product.product_name}
         span.mx-2.mb-0 /
-        strong.text-black {{title}}
+        strong.text-black Thông tin chi tiết
 .site-section
   .container
     .row
       .col-md-6
-        img.img-fluid(src='/images/iphoneXSMax.png', alt='Image')
+        img.img-fluid(src='#{product.image}', alt='Image placeholder')
       .col-md-6
-        h2.text-black {{data.name}}
+        h2.text-black #{product.product_name}
         p
-          strong.text-primary.h4 {{data.price}}
+          strong.text-primary.h4 #{product.price}
         ul
-          | {{#each data.shortInfo}}
-          li {{this}}
-          |                     {{/each}}
-        span.text-black Chọn màu:
+          | #{product.product_description}
+
+      <!--  span.text-black Chọn màu:
         .mb-1.d-flex
           | {{#each data.color}}
           label.d-flex.mr-3.mb-3(for='{{this}}')
             span.d-inline-block.mr-2(style='top:-2px; position: relative;')
               input(type='radio', id='{{this}}', name='color')
             span.d-inline-block.text-black {{this}}
-          |                     {{/each}}
+          |                     {{/each}} -->
         .mb-5
           .input-group.mb-3(style='max-width: 120px;')
             .input-group-prepend
@@ -36,7 +35,7 @@
             .input-group-append
               button.btn.btn-outline-primary.js-btn-plus(type='button') +
         p
-          a.buy-now.btn.btn-sm.btn-primary(href='/cart') Thêm vào giỏ hàng
+          a.buy-now.btn.btn-sm.btn-primary(href='/api/cart') Thêm vào giỏ hàng
 .site-section.block-3.site-blocks-2.bg-light
   .container
     .row.justify-content-center
@@ -50,36 +49,28 @@
         tr
           td Thương hiệu
           td
-            a(href='.') {{data.brand}}
+            a(href='.') #{product.brand}
         tr
           td Kích thước màn hình
           td
-            | {{data.info.screen}}
-        tr
-          td Hệ điều hành
-          td
-            | {{data.info.os}}
+            | #{product.screen}
         tr
           td Camera trước
           td
-            | {{data.info.frontCamera}}
+            | #{product.fcamera}
         tr
           td Camera sau
           td
-            | {{data.info.backCamera}}
+            | #{product.bcamera}
         tr
           td Bộ nhớ RAM
           td
-            | {{data.info.ram}}
+            | #{product.ram}
         tr
           td Bộ nhớ trong
           td
-            | {{data.info.rom}}
+            | #{product.rom}
         tr
           td Dung lượng pin
           td
-            | {{data.info.pin}}
-        tr
-          td Số khe sim
-          td
-            | {{data.info.sim}}
+            | #{product.pin}

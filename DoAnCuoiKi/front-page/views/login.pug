@@ -1,26 +1,35 @@
-// Section Home News
-.pages
+.bg-light.py-3
   .container
-    ul.breadcrumb
-      li
-        a(href='/', target='_self') Trang chủ
-      li
-        a(href='/', target='_self')  / Sản phẩm
-      li.active  / Login
-  section#product
-    .container
-      .row.box
-        .col-xs-12
-          h4.title-4
-            span Đánh giá
-        .col-xs-12.col-sm-4
-          form#contact-form(action='#contact-form', method='post')
-            .form-group
-              label Email:
-              input.form-control(name='email', tabindex='2', type='email')
-            .form-group
-              label Mật Khẩu
-              input.form-control(type='password', name='password', minlength='8', required='')
-            .form-group
-              input(name='contact', type='hidden', value='true')
-              button.btn.btn-primary.btn-vtech(type='submit') Đăng Nhập
+    .row
+      .col-md-12.mb-0
+        a(href='/') Trang chủ
+        span.mx-2.mb-0 /
+        strong.text-black Đăng Nhập
+.site-section
+  .container
+    .row.justify-content-center
+      .col-md-6.mb-5.mb-md-0
+        h2.h3.mb-3.text-black Đăng Nhập
+        .p-3.p-lg-5.border
+          form(method='post')
+            .form-group.row
+              .col-md-12
+                label.text-black(for='account')
+                  | Tên đăng nhập
+                  span.text-danger *
+                input#account.form-control(type='account', name='account')
+            .form-group.row
+              .col-md-12
+                label.text-black(for='password')
+                  | Mật khẩu
+                  span.text-danger *
+                input#password.form-control(type='password', name='password')
+            .form-group.row
+              .col-md-12.text-right
+                a(href='/api/recover') Quên mật khẩu
+            .form-group.row
+              .col-md
+                input.btn.btn-primary.btn-lg.py-3.btn-block(type='submit', value='Đăng nhập')
+            .form-group.row
+              .col-sm.text-cente
+                a(href='/register') Tạo tài khoản mới
