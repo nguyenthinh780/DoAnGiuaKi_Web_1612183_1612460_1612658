@@ -42,6 +42,7 @@ exports.product_detail = function(req, res) {
 
 // Display Product create form on GET.
 exports.product_create_get = function(req, res, next) {
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   async.parallel({
         stalls: function(callback) {
             Stall.find(callback);
@@ -114,7 +115,7 @@ exports.product_create_post = [
 
 // Display Product delete form on GET.
 exports.product_delete_get = function(req, res, next) {
-
+if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   Product.findById(req.params.id)
     .populate('Stall')
     .exec(function (err, product) {
@@ -143,7 +144,7 @@ exports.product_delete_post =  function(req, res, next) {
 
 // Display Product update form on GET.
 exports.product_update_get = function (req, res, next) {
-
+if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   async.parallel({
         product: function(callback) {
             Product.findById(req.params.id).populate('stall').populate('genre').exec(callback);

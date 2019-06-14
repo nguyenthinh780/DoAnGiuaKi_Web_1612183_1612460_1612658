@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{login_id.login_name}
+
+  p Bạn muốn đăng xuất?
+
+  form(method='POST' action='')
+      button.btn.btn-primary(type='submit') Đăng xuất

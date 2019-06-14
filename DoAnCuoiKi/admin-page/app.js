@@ -10,13 +10,16 @@ var catalogRouter = require('./routes/api');  //Import routes for "api" area of 
 
 var app = express();
 
+
+//biến để đăng nhập
+global.login_id = null;
+
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://nguyenthinh780:thinh780@cluster0-ifxz9.mongodb.net/storedb?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

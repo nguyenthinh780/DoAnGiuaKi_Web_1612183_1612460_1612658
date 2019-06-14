@@ -9,9 +9,20 @@ var order_controller = require('../controllers/orderController');
 var orderdetail_controller = require('../controllers/orderdetailController');
 
 /// ACCOUNT ROUTES ///
-
 // GET api home page.
 router.get('/', account_controller.index);
+
+// GET request for creating a Account. NOTE This must come before routes that display Account (uses id).
+router.get('/account/login', account_controller.account_login_get);
+
+// POST request for creating Account.
+router.post('/account/login', account_controller.account_login_post);
+
+// GET request for creating a Account. NOTE This must come before routes that display Account (uses id).
+router.get('/account/logout', account_controller.account_logout_get);
+
+// POST request for creating Account.
+router.post('/account/logout', account_controller.account_logout_post);
 
 // GET request for creating a Account. NOTE This must come before routes that display Account (uses id).
 router.get('/account/create', account_controller.account_create_get);

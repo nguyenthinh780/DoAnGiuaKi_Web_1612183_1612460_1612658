@@ -6,6 +6,7 @@ const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 var async = require('async');
 
+
 exports.index = function(req, res) {
   async.parallel({
     account_count: function(callback) {
@@ -28,7 +29,7 @@ exports.index = function(req, res) {
 
 // Display list of all accounts.
 exports.account_list = function(req, res) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   Account.find({}, 'login_name type')
     .exec(function (err, list_accounts) {
       if (err) { return next(err); }
@@ -40,7 +41,7 @@ exports.account_list = function(req, res) {
 
 // Display detail page for a specific account.
 exports.account_detail = function(req, res) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
       async.parallel({
           account: function(callback) {
 
@@ -67,6 +68,7 @@ exports.account_detail = function(req, res) {
 
 // Display account create form on GET.
 exports.account_create_get = function(req, res, next) {
+    if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
     res.render('account_form', { title: 'Create Account'});
 };
 
@@ -127,9 +129,58 @@ exports.account_create_post = [
     }
 ];
 
+exports.account_login_get = function(req, res, next) {
+    if (login_id != null) res.redirect('/api/account/logout');
+    res.render('account_login', { title: 'Login'});
+};
+
+// Handle account create on POST.
+exports.account_login_post = [
+
+    // Validate fields.
+    body('login_name').isLength({ min: 1 }).trim().withMessage('Hãy nhập tên đăng nhập.'),
+    body('password').isLength({ min: 1 }).trim().withMessage('Hãy nhập mật khẩu.'),
+
+    // Sanitize fields.
+    sanitizeBody('login_name').escape(),
+    sanitizeBody('password').escape(),
+
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+
+        var login_name = req.body.login_name;
+        var password = req.body.password;
+        //
+
+        Account.findOne({login_name: login_name, password: password}, function (err,user) {
+          if (err) { return next(err); }
+
+          login_id = user;
+          //res.send(global.login_id);
+          res.redirect('/');
+        })
+
+    }
+];
+
+
+exports.account_logout_get = function(req, res, next) {
+    if (login_id == null) res.redirect('/api/account/login');
+    else res.render('account_logout', { title: 'Logout'});
+};
+
+// Handle account create on POST.
+exports.account_logout_post = function (req, res, next) {
+    login_id = null;
+    res.redirect('/');
+};
+
 // Display account delete form on GET.
 exports.account_delete_get = function (req, res, next) {
-
+  if (login_id == null || login_id.type != 'Admin' || login_id._id == req.params.id) res.redirect('/api/account/login');
     async.parallel({
         account: function (callback) {
             Account.findById(req.params.id).exec(callback)
@@ -140,7 +191,7 @@ exports.account_delete_get = function (req, res, next) {
     }, function (err, results) {
         if (err) { return next(err); }
         if (results.account == null) { // No results.
-            res.redirect('/catalog/accounts');
+            res.redirect('/api/accounts');
         }
         // Successful, so render.
         res.render('account_delete', { title: 'Delete Account', account: results.account, account_orders: results.accounts_orders });
@@ -181,7 +232,7 @@ exports.account_delete_post = function (req, res, next) {
 
 // Display account update form on GET.
 exports.account_update_get = function (req, res, next) {
-
+    if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
     Account.findById(req.params.id, function (err, account) {
         if (err) { return next(err); }
         if (account == null) { // No results.

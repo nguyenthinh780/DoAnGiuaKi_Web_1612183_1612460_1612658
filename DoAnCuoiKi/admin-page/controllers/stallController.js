@@ -45,6 +45,7 @@ exports.stall_detail = function(req, res) {
 
 // Display Stall create form on GET.
 exports.stall_create_get = function(req, res) {
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
     res.render('stall_form', { title: 'Create Stall' });
 };
 
@@ -91,7 +92,7 @@ exports.stall_create_post =  [
 
 // Display Stall delete form on GET.
 exports.stall_delete_get = function (req, res, next) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
     async.parallel({
         stall: function (callback) {
             Stall.findById(req.params.id).exec(callback)
@@ -142,7 +143,7 @@ exports.stall_delete_post =  function (req, res, next) {
 
 // Display Stall update form on GET.
 exports.stall_update_get = function (req, res, next) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
     Stall.findById(req.params.id, function (err, stall) {
         if (err) { return next(err); }
         if (stall == null) { // No results.

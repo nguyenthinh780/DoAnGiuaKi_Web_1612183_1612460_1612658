@@ -7,7 +7,7 @@ var async = require('async');
 
 // Display list of all Order.
 exports.order_list = function(req, res) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   Order.find()
     .exec(function (err, list_orders) {
       if (err) { return next(err); }
@@ -19,7 +19,7 @@ exports.order_list = function(req, res) {
 
 // Display detail page for a specific Order.
 exports.order_detail = function(req, res) {
-
+  if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
   async.parallel({
      order: function(callback) {
          Order.findById(req.params.id)
@@ -67,7 +67,7 @@ exports.order_delete_post = function(req, res) {
 
 // Display Order update form on GET.
 exports.order_update_get = function (req, res, next) {
-
+    if (login_id == null || login_id.type != 'Admin') res.redirect('/api/account/login');
       Order.findById(req.params.id, function (err, order) {
           if (err) { return next(err); }
           if (order == null) { // No results.

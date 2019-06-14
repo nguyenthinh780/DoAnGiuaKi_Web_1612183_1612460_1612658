@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Tài khoản
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='login_name') Tên đăng nhập:
+      input#login_name.form-control(type='text' placeholder='Tên đăng nhập vào hệ thống' name='login_name' required='true' value=(undefined===account ? '' : account.login_name) )
+    div.form-group
+      label(for='password') Mật khẩu:
+      input#password.form-control(type='password' placeholder='Mật khẩu để đăng nhập' name='password' required='true' value=(undefined===account ? '' : account.password) )
+
+    button.btn.btn-primary(type='submit') Đăng nhập
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
