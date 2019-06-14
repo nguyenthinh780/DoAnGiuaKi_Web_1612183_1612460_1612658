@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1 Tài khoản
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='login_name') Tên đăng nhập:
+      input#login_name.form-control(type='text' placeholder='Tên đăng nhập vào hệ thống' name='login_name' required='true' value=(undefined===account ? '' : account.login_name) )
+    div.form-group
+      label(for='password') Mật khẩu:
+      input#password.form-control(type='password' placeholder='Mật khẩu để đăng nhập' name='password' required='true' value=(undefined===account ? '' : account.password) )
+    div.form-group
+      label(for='name') Họ tên:
+      input#name.form-control(type='text' placeholder='Trương Đức A' name='name' value=(undefined===account ? '' : account.name) )
+    div.form-group
+      label(for='birth') Sinh nhật:
+      input#birth.form-control(type='date' name='birth' value=(undefined===account ? '' : account.birth) )
+    div.form-group
+      label(for='email') Email:
+      input#email.form-control(type='text' placeholder='test@email.com' name='email' value=(undefined===account ? '' : account.email) )
+    div.form-group
+      label(for='phone') Số điện thoại:
+      input#phone.form-control(type='text' placeholder='090123456' name='phone' value=(undefined===account ? '' : account.phone) )
+    div.form-group
+      label(for='type') Loại tài khoản:
+      select#type.form-control(type='select', placeholder='Chọn loại tài khoản' name='type' required='true' )
+        option(value='Customer') Customer
+        option(value='Guest') Guest
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
