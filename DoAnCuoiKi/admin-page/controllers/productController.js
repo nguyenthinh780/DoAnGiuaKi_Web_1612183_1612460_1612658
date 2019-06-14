@@ -67,6 +67,7 @@ exports.product_create_post = [
     sanitizeBody('product_description').escape(),
     sanitizeBody('brand').escape(),
     sanitizeBody('price').escape(),
+    sanitizeBody('image').escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -81,7 +82,8 @@ exports.product_create_post = [
                 stall: req.body.stall,
                 brand: req.body.brand,
                 product_description: req.body.product_description,
-                price: req.body.price
+                price: req.body.price,
+                image: req.body.image
             });
 
             if (!errors.isEmpty()) {
@@ -176,6 +178,7 @@ exports.product_update_post = [
       sanitizeBody('product_description').escape(),
       sanitizeBody('brand').escape(),
       sanitizeBody('price').escape(),
+      sanitizeBody('image').escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -191,6 +194,7 @@ exports.product_update_post = [
               brand: req.body.brand,
               product_description: req.body.product_description,
               price: req.body.price,
+              image: req.body.image,
                 _id: req.params.id
             }
         );

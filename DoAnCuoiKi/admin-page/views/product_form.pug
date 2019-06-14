@@ -28,6 +28,9 @@ block content
     div.form-group
       label(for='price') Giá:
       input#price.form-control(type='text' name='price' value=(undefined===product ? '' : product.price) )
+    div.form-group
+      label(for='image') Link hình ảnh:
+      input#image.form-control(type='text' name='image' value=(undefined===product ? '' : product.image) )
 
     button.btn.btn-primary(type='submit') Submit
 

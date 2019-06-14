@@ -3,6 +3,7 @@ extends layout
 block content
   h1 #{title}: #{product.product_name}
 
+  img(src= '../images/'+ product.image)
   p #[strong Gian hàng: ]
     a(href=product.stall.url) #{product.stall.stall_name}
   p #[strong Nhãn hàng:] #{product.brand}
