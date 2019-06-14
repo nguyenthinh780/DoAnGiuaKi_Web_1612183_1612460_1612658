@@ -2,10 +2,15 @@ extends layout
 
 block content
   h1 #{title}: #{product.product_name}
-
-  img(src= '../images/'+ product.image)
-  p #[strong Gian hàng: ]
-    a(href=product.stall.url) #{product.stall.stall_name}
-  p #[strong Nhãn hàng:] #{product.brand}
-  p #[strong Miêu tả:] #{product.product_description}
-  p #[strong Giá:] #{product.price}
+  .row
+      .col-md-6
+        .row.mb-5
+          .col-md-6.mb-3.mb-md-0
+              img(src= '../images/'+ product.image)
+          .col-md-6
+              p #[strong Gian hàng: ]
+                a(href=product.stall.url) #{product.stall.stall_name}
+              p #[strong Nhãn hàng:] #{product.brand}
+              p #[strong Miêu tả:] #{product.product_description}
+              p #[strong Giá:] #{product.price}
+              button.btn.btn-primary.btn-sm.btn-block Thêm vào giỏ hàng
