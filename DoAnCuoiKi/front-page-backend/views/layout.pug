@@ -8,34 +8,37 @@ html(lang='en')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+
   body
 
 
-    div(class='container-fluid')
-      div(class='row')
-        div(class='col-sm-2')
-          block sidebar
-            ul(class='sidebar-nav')
-              li
-                a(href='/api') Trang chủ
-              li
-                a(href='/api/stalls') Gian hàng
-              //li
-                a(href='/api/products') Sản phẩm
-              li
-                a(href='/api/orderdetails') Giỏ hàng của bạn
-              li
-                a(href='/api/account/:id') Tài khoản của bạn
-                hr
-              if login_id == null
-                li
-                  a(href='/api/account/create') Tạo tài khoản
-              if login_id == null
-                li
-                  a(href='/api/account/login') Đăng nhập
-              if login_id != null
-                li
-                  a(href='/api/account/logout') Đăng xuất
+  div(class='container-fluid')
+     div(class='row')
+       div(class='col-sm-2')
+         block sidebar
+         .w3-sidebar.w3-light-blue.w3-bar-block
+           ul(class='sidebar-nav' style="padding-left:0px; padding-top:10px")
+             p
+               a.w3-bar-item.w3-button(href='/api') Trang chủ
+             p
+               a.w3-bar-item.w3-button(href='/api/stalls') Gian hàng
+             //li
+               a.w3-bar-item.w3-button(href='/api/products') Sản phẩm
+             p
+               a.w3-bar-item.w3-button(href='/api/orderdetails') Giỏ hàng của bạn
+             p
+               a.w3-bar-item.w3-button(href='/api/account/:id') Tài khoản của bạn
+               hr
+             if login_id == null
+               p
+                 a.w3-bar-item.w3-button(href='/api/account/create') Tạo tài khoản
+             if login_id == null
+               p
+                 a.w3-bar-item.w3-button(href='/api/account/login') Đăng nhập
+             if login_id != null
+               p
+                 a.w3-bar-item.w3-button(href='/api/account/logout') Đăng xuất
 
-        div(class='col-sm-10')
-          block content
+       div(class='col-sm-10')
+         block content
