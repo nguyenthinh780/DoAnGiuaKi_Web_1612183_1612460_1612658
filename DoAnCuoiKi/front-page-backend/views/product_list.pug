@@ -8,7 +8,8 @@ block content
     .col-xs-0.col-sm-4.pitem
       p(style="padding-bottom:30px")
       a(href=product.url)
-        img(src= 'images/'+ product.image)
+        if search == false
+          img(src= 'images/'+ product.image)
         a(href=product.url) #{product.product_name}
 
   else

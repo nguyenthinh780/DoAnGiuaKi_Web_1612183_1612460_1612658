@@ -77,6 +77,8 @@ router.get('/stalls', stall_controller.stall_list);
 
 /// PRODUCT ROUTES ///
 
+router.get('/product/search', product_controller.product_search_get);
+router.post('/product/search', product_controller.product_search_post);
 // GET request for creating a Product. NOTE This must come before route that displays Product (uses id).
 router.get('/product/create', product_controller.product_create_get);
 
@@ -89,17 +91,18 @@ router.get('/product/:id/delete', product_controller.product_delete_get);
 // POST request to delete Product.
 router.post('/product/:id/delete', product_controller.product_delete_post);
 
-// GET request to update Product.
-router.get('/product/:id/update', product_controller.product_update_get);
-
-// POST request to update Product.
-router.post('/product/:id/update', product_controller.product_update_post);
+// // GET request to update Product.
+// router.get('/product/:id/update', product_controller.product_update_get);
+//
+// // POST request to update Product.
+// router.post('/product/:id/update', product_controller.product_update_post);
 
 // GET request for one Product.
 router.get('/product/:id', product_controller.product_detail);
 
 // GET request for list of all Product.
 router.get('/products', product_controller.product_list);
+
 
 /// ORDER ROUTES ///
 

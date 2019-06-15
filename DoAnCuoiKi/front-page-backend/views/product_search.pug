@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Tìm kiếm
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='product_name') Tên sản phẩm:
+      input#product_name.form-control(type='text' placeholder='iphone, ipad, ...' name='product_name' required='true' value=(undefined===product ? '' : product.product_name) )
+    button.btn.btn-primary(type='submit') Tìm kiếm
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

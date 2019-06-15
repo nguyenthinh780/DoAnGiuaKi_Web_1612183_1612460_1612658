@@ -7,13 +7,12 @@ const { sanitizeBody } = require('express-validator/filter');
 var async = require('async');
 
 exports.index = function(req, res) {
-
     Product.find({}, 'product_name stall image')
       .populate('stall')
       .exec(function (err, list_products) {
         if (err) { return next(err); }
         // Successful, so render.
-        res.render('product_list', { title: 'Product List', list_products:  list_products});
+        res.render('product_list', { title: 'Product List', list_products:  list_products, search: false});
       });
 
 };
@@ -183,7 +182,7 @@ exports.account_delete_get = function (req, res, next) {
         if (results.account == null) { // No results.
             res.redirect('/catalog/accounts');
         }
-        
+
         // Successful, so render.
         res.render('account_delete', { title: 'Delete Account', account: results.account, account_orders: results.accounts_orders });
     });

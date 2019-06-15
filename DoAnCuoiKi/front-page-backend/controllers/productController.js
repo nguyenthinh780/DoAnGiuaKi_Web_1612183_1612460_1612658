@@ -143,43 +143,103 @@ exports.product_delete_post =  function(req, res, next) {
 };
 
 // Display Product update form on GET.
-exports.product_update_get = function (req, res, next) {
+// exports.product_update_get = function (req, res, next) {
+//
+//   async.parallel({
+//         product: function(callback) {
+//             Product.findById(req.params.id).populate('stall').populate('genre').exec(callback);
+//         },
+//         stalls: function(callback) {
+//             Stall.find(callback);
+//         },
+//         }, function(err, results) {
+//             if (err) { return next(err); }
+//             if (results.product==null) { // No results.
+//                 var err = new Error('Product not found');
+//                 err.status = 404;
+//                 return next(err);
+//             }
+//             res.render('product_form', { title: 'Update Product', stalls:results.stalls, product: results.product });
+//         });
+//
+// };
+//
+// // Handle Product update on POST.
+// exports.product_update_post = [
+//
+//       // Validate fields.
+//       body('product_name').isLength({ min: 1 }).trim().withMessage('Hãy nhập tên sản phẩm.')
+//           .isLength({ max: 50 }).trim().withMessage('Tên sản phẩm quá dài.'),
+//       body('product_description').isLength({ max: 250 }).trim().withMessage('Mô tả quá dài.'),
+//       body('brand').isLength({ max: 50 }).trim().withMessage('Tên hãng quá dài.'),
+//       body('price').isNumeric({ min: 1000 }).trim().withMessage('Giá trị quá nhỏ.'),
+//
+//
+//       sanitizeBody('product_name').escape(),
+//       sanitizeBody('product_description').escape(),
+//       sanitizeBody('brand').escape(),
+//       sanitizeBody('price').escape(),
+//       sanitizeBody('image').escape(),
+//
+//     // Process request after validation and sanitization.
+//     (req, res, next) => {
+//
+//         // Extract the validation errors from a request.
+//         const errors = validationResult(req);
+//
+//         // Create Product object with escaped and trimmed data (and the old id!)
+//         var product = new Product(
+//             {
+//               product_name: req.body.product_name,
+//               stall: req.body.stall,
+//               brand: req.body.brand,
+//               product_description: req.body.product_description,
+//               price: req.body.price,
+//               image: req.body.image,
+//                 _id: req.params.id
+//             }
+//         );
+//
+//         if (!errors.isEmpty()) {
+//             // There are errors. Render form again with sanitized values/error messages.
+//
+//             // Get all stalls and genres for form
+//             async.parallel({
+//                 stalls: function(callback) {
+//                     Stall.find(callback);
+//                 },
+//             }, function(err, results) {
+//                 if (err) { return next(err); }
+//
+//                 res.render('product_form', { title: 'Update Product',stalls:results.stalls, product: product, errors: errors.array() });
+//             });
+//             return;
+//         }
+//         else {
+//             // Data from form is valid. Update the record.
+//             Product.findByIdAndUpdate(req.params.id, product, {}, function (err,theproduct) {
+//                 if (err) { return next(err); }
+//                    // Successful - redirect to product detail page.
+//                    res.redirect(theproduct.url);
+//                 });
+//         }
+//     }
+// ];
 
-  async.parallel({
-        product: function(callback) {
-            Product.findById(req.params.id).populate('stall').populate('genre').exec(callback);
-        },
-        stalls: function(callback) {
-            Stall.find(callback);
-        },
-        }, function(err, results) {
-            if (err) { return next(err); }
-            if (results.product==null) { // No results.
-                var err = new Error('Product not found');
-                err.status = 404;
-                return next(err);
-            }
-            res.render('product_form', { title: 'Update Product', stalls:results.stalls, product: results.product });
-        });
-
+// Display Product create form on GET.
+exports.product_search_get = function(req, res) {
+    res.render('product_search', { title: 'search Product'});
 };
 
-// Handle Product update on POST.
-exports.product_update_post = [
+// Handle Product create on POST.
+exports.product_search_post = [
 
-      // Validate fields.
-      body('product_name').isLength({ min: 1 }).trim().withMessage('Hãy nhập tên sản phẩm.')
-          .isLength({ max: 50 }).trim().withMessage('Tên sản phẩm quá dài.'),
-      body('product_description').isLength({ max: 250 }).trim().withMessage('Mô tả quá dài.'),
-      body('brand').isLength({ max: 50 }).trim().withMessage('Tên hãng quá dài.'),
-      body('price').isNumeric({ min: 1000 }).trim().withMessage('Giá trị quá nhỏ.'),
+    // Validate fields.
+    body('product_name').isLength({ min: 1 }).trim().withMessage('Hãy nhập tên sản phẩm.')
+        .isLength({ max: 50 }).trim().withMessage('Tên sản phẩm quá dài.'),
 
 
-      sanitizeBody('product_name').escape(),
-      sanitizeBody('product_description').escape(),
-      sanitizeBody('brand').escape(),
-      sanitizeBody('price').escape(),
-      sanitizeBody('image').escape(),
+    sanitizeBody('product_name').escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -187,41 +247,17 @@ exports.product_update_post = [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
 
-        // Create Product object with escaped and trimmed data (and the old id!)
-        var product = new Product(
-            {
-              product_name: req.body.product_name,
-              stall: req.body.stall,
-              brand: req.body.brand,
-              product_description: req.body.product_description,
-              price: req.body.price,
-              image: req.body.image,
-                _id: req.params.id
-            }
-        );
-
-        if (!errors.isEmpty()) {
-            // There are errors. Render form again with sanitized values/error messages.
-
-            // Get all stalls and genres for form
-            async.parallel({
-                stalls: function(callback) {
-                    Stall.find(callback);
-                },
-            }, function(err, results) {
-                if (err) { return next(err); }
-
-                res.render('product_form', { title: 'Update Product',stalls:results.stalls, product: product, errors: errors.array() });
+        // Create an Product object with escaped and trimmed data.
+          var search;
+          Product.find({product_name: req.body.product_name})
+            .populate('stall')
+            .exec(function (err, list_products) {
+              if (err) { return next(err); }
+              // Successful, so render.
+              search =true;
+              res.render('product_list', { title: 'Product List', list_products:  list_products, search:search});
             });
-            return;
-        }
-        else {
-            // Data from form is valid. Update the record.
-            Product.findByIdAndUpdate(req.params.id, product, {}, function (err,theproduct) {
-                if (err) { return next(err); }
-                   // Successful - redirect to product detail page.
-                   res.redirect(theproduct.url);
-                });
-        }
+
+
     }
 ];
