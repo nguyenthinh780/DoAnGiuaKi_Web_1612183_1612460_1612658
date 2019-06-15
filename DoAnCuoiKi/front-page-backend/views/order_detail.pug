@@ -7,15 +7,8 @@ block content
   div(style='margin-left:20px;margin-top:20px')
 
     h4 #{order.type} | #{order.order_date_formatted}
-
-    dl
-      each orderdetail in order_orderdetails
-        dt
-          a(href=orderdetail.url) #{orderdetail.product.product_name}
-        p Số lượng: #{orderdetail.number}
-
-      else
-        p Đơn hàng này không có sản phẩm.
-  hr
-  p
-    a(href=order.url+'/update') Update đơn hàng
+    p
+    p Sản phẩm: 
+      a(href=order.url) #{order.product.product_name}
+    p Số lượng: #{order.number}
+    p Tổng giá: #{order.number*order.product.price}

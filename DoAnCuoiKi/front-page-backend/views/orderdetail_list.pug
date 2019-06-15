@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Giỏ hàng
+
+  ul
+  each orderdetail in list_orderdetails
+      li
+        a(href=orderdetail.url) #{orderdetail.product.product_name}
+
+  else
+    li Không có sản phẩm trong giỏ hàng.

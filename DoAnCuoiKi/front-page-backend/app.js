@@ -10,6 +10,14 @@ var catalogRouter = require('./routes/api');  //Import routes for "api" area of 
 
 var app = express();
 
+
+//biến để đăng nhập
+global.login_id = null;
+//biến để thêm sản phẩm
+global.product_add = null;
+//biến để mua hàng
+global.order_add = null;
+
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://nguyenthinh780:thinh780@cluster0-ifxz9.mongodb.net/storedb?retryWrites=true&w=majority';

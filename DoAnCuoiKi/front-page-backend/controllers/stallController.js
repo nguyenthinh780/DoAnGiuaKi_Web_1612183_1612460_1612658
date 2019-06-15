@@ -172,29 +172,29 @@ exports.stall_update_post = [
     (req, res, next) => {
 
         // Extract the validation errors from a request.
-        const errors = validationResult(req);
-
-        // Create Stall object with escaped and trimmed data (and the old id!)
-        var stall = new Stall(
-            {
-              stall_name: req.body.stall_name,
-              stall_description: req.body.stall_description,
-                _id: req.params.id
-            }
-        );
-
-        if (!errors.isEmpty()) {
-            // There are errors. Render the form again with sanitized values and error messages.
-            res.render('stall_form', { title: 'Update Stall', stall: stall, errors: errors.array() });
-            return;
-        }
-        else {
-            // Data from form is valid. Update the record.
-            Stall.findByIdAndUpdate(req.params.id, stall, {}, function (err, thestall) {
-                if (err) { return next(err); }
-                // Successful - redirect to genre detail page.
-                res.redirect(thestall.url);
-            });
-        }
+        // const errors = validationResult(req);
+        //
+        // // Create Stall object with escaped and trimmed data (and the old id!)
+        // var stall = new Stall(
+        //     {
+        //       stall_name: req.body.stall_name,
+        //       stall_description: req.body.stall_description,
+        //         _id: req.params.id
+        //     }
+        // );
+        //
+        // if (!errors.isEmpty()) {
+        //     // There are errors. Render the form again with sanitized values and error messages.
+        //     res.render('stall_form', { title: 'Update Stall', stall: stall, errors: errors.array() });
+        //     return;
+        // }
+        // else {
+        //     // Data from form is valid. Update the record.
+        //     Stall.findByIdAndUpdate(req.params.id, stall, {}, function (err, thestall) {
+        //         if (err) { return next(err); }
+        //         // Successful - redirect to genre detail page.
+        //         res.redirect(thestall.url);
+        //     });
+        // }
     }
 ];

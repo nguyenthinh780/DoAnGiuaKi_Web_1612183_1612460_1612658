@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #[strong Sản phẩm: ]
+    a(href=orderdetail.product.url) #{orderdetail.product.product_name}
+  p #[strong Số lượng:] #{orderdetail.number}
+  p #[strong Giá tiền:] #{orderdetail.number*orderdetail.product.price}
+  hr
+  p
+    a(href=orderdetail.url+'/delete') Xóa khỏi giỏ hàng
+  p
+    a(href=orderdetail.url+'/update') Sửa Số lượng
+  p
+    a(href='/api/order/create') Thanh toán

@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1 #{title}: #{product.product_name}
+  h1 Tên sản phẩm: #{product.product_name}
+
   .row
       .col-md-6
         .row.mb-5
@@ -13,4 +14,4 @@ block content
               p #[strong Nhãn hàng:] #{product.brand}
               p #[strong Miêu tả:] #{product.product_description}
               p #[strong Giá:] #{product.price}
-              button.btn.btn-primary.btn-sm.btn-block Thêm vào giỏ hàng
+              a(href='/api/orderdetail/create') Thêm vào giỏ hàng

@@ -35,6 +35,7 @@ exports.product_detail = function(req, res) {
           return next(err);
       }
       // Successful, so render.
+      product_add=results.product;
       res.render('product_detail', { title: 'Title', product: results.product } );
   });
 

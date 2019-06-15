@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1 Sản phẩm
 
   ul
   each product in list_products
@@ -10,7 +10,6 @@ block content
 
         img(src= 'images/'+ product.image)
         a(href=product.url) #{product.product_name}
-        |  (#{product.stall.stall_name})
 
   else
     li Không có tài khoản trong cơ sở dữ liệu.
